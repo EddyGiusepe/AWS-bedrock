@@ -4,8 +4,8 @@ Senior Data Scientist.: Dr. Eddy Giusepe Chirinos Isidro
 
 anthropic.claude-instant-v1
 ===========================
-Um modelo rápido e econômico, mas ainda assim muito capaz, 
-que pode lidar com uma variedade de tarefas, incluindo diálogo 
+Um modelo rápido e econômico, mas ainda assim muito capaz,
+que pode lidar com uma variedade de tarefas, incluindo diálogo
 casual, análise de texto, sumarização e resposta a perguntas de documentos.
 
 ------------------------------------------------------
@@ -24,13 +24,13 @@ casual, análise de texto, sumarização e resposta a perguntas de documentos.
 import boto3
 import json
 
-prompt_data="""
+prompt_data = """
 Atua como um Shakespeare e escreva um poema sobre IA Generativa.
 Este poema deve ter apenas um parágrafo de 200 palavras.
 Ademais, sempre responda em português do Brasil (pt-BR).
 """
 
-bedrock=boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
+bedrock = boto3.client(service_name="bedrock-runtime", region_name="us-east-1")
 
 
 """
@@ -64,5 +64,3 @@ response = bedrock.invoke_model(
 response_body = json.loads(response.get("body").read())
 response_text = response_body.get("completion")
 print(response_text)
-
-
